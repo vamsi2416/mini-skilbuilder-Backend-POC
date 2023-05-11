@@ -1,6 +1,7 @@
 import { body, param } from "express-validator";
 import { UserController } from "./controller/UserController";
-import { QuestionsController } from "./controller/questionsController";
+import { AnswersController } from "./controller/AnswersConroller";
+import { QuestionsController } from "./controller/QuestionsController";
 
 export const Routes = [
   {
@@ -42,6 +43,27 @@ export const Routes = [
     route: "/question",
     controller: QuestionsController,
     action: "save",
-    validation: [body("question").isString(), body("tags").isArray()],
+    validation: [body("questionText").isString()],
+  },
+  {
+    method: "get",
+    route: "/questions",
+    controller: QuestionsController,
+    action: "all",
+    validation: [],
+  },
+  {
+    method: "post",
+    route: "/answers",
+    controller: AnswersController,
+    action: "save",
+    validation: [body("questionId").isString()],
+  },
+  {
+    method: "get",
+    route: "/questions",
+    controller: AnswersController,
+    action: "all",
+    validation: [],
   },
 ];
