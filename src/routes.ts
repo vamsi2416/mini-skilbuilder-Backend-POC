@@ -61,7 +61,7 @@ export const Routes = [
   },
   {
     method: "get",
-    route: "/questions",
+    route: "/answers",
     controller: AnswersController,
     action: "all",
     validation: [],
